@@ -9,7 +9,7 @@ import org.testng.annotations.*;
 
 @SpringBootTest
 public abstract class TestBase extends AbstractTestNGSpringContextTests {
-  @Autowired protected DriverService driver;
+  @Autowired protected DriverService driverService;
   @Autowired protected WaitHelper waitHelper;
 
   @BeforeSuite
@@ -19,13 +19,13 @@ public abstract class TestBase extends AbstractTestNGSpringContextTests {
 
   @BeforeMethod
   public void beforeTest() {
-    driver.start();
+    driverService.start();
     waitHelper.start();
   }
 
   @AfterMethod
   public void afterTest() {
-    driver.quit();
+    driverService.quit();
   }
 
   @AfterSuite
