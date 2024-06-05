@@ -42,15 +42,14 @@ dependencies {
     testImplementation group: 'org.springframework.boot', name: 'spring-boot-test-autoconfigure', version: '3.2.5'
 }
 
-tasks.register("runTest", Test) {
-    useTestNG() {
-        options {
-            useDefaultListeners = true
-        }
-    }
+test {
+    onlyIf { !project.hasProperty("withTests")}
+
+    useTestNG()
 
     testLogging.showStandardStreams = true
     testLogging.exceptionFormat = 'full'
+
     testLogging {
         events "PASSED", "FAILED", "SKIPPED"
     }
