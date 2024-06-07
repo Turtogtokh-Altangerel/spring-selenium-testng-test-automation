@@ -43,7 +43,7 @@ dependencies {
 }
 
 test {
-    onlyIf { false }
+    onlyIf { gradle.startParameter.taskNames.contains("test") }
 
     useTestNG()
 
