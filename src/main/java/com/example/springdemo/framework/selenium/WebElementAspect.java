@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class WebElementAspect {
-  @Autowired WaitHelper waitHelper;
+  @Autowired WaitService waitService;
 
   @Before("allMethods()")
   public void before(JoinPoint joinPoint) {
