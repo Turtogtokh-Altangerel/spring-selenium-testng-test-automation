@@ -10,4 +10,6 @@ import org.springframework.stereotype.Component;
 @Documented
 @Component
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-public @interface PageObject {}
+public @interface PageObject {
+  String defaultUrl() default "";
+}
