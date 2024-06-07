@@ -7,12 +7,13 @@ import com.example.springdemo.framework.driver.DriverService;
 import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class WaitHelper {
+public class WaitService {
   @Autowired DriverService driverService;
   private static WebDriverWait webDriverWait;
 

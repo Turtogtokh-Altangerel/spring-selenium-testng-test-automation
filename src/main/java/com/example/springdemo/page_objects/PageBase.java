@@ -2,13 +2,13 @@ package com.example.springdemo.page_objects;
 
 import com.example.springdemo.framework.driver.DriverService;
 import com.example.springdemo.framework.selenium.CustomFieldDecorator;
-import com.example.springdemo.framework.wait_strategy.WaitHelper;
+import com.example.springdemo.framework.wait_strategy.WaitService;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class PageBase {
-  @Autowired protected WaitHelper waitHelper;
+  @Autowired protected WaitService waitService;
   @Autowired protected DriverService driverService;
 
   protected WebDriver driver;

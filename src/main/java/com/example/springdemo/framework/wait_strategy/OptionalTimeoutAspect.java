@@ -12,9 +12,9 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class OptionalTimeoutAspect {
-  @Autowired WaitHelper waitHelper;
+  @Autowired WaitService waitService;
 
-  @Pointcut("execution(* com.example.springdemo.framework.wait_strategy.WaitHelper.*(int, ..))")
+  @Pointcut("execution(* com.example.springdemo.framework.wait_strategy.WaitService.*(int, ..))")
   public void isWaitHelperMethodWithIntArg() {}
 
   @Pointcut("@annotation(com.example.springdemo.framework.wait_strategy.OptionalTimeout)")
@@ -26,11 +26,11 @@ public class OptionalTimeoutAspect {
           + "args(timeout, ..)")
   public Object applyCustomTimeout(ProceedingJoinPoint waitHelperMethod, int timeout)
       throws Throwable {
-    waitHelper.setTimeout(Duration.ofSeconds(timeout));
+    waitService.setTimeout(Duration.ofSeconds(timeout));
     try {
       return waitHelperMethod.proceed();
     } finally {
-      waitHelper.setTimeout(Configuration.DEFAULT_TIMEOUT_DURATION);
+      waitService.setTimeout(Configuration.DEFAULT_TIMEOUT_DURATION);
     }
   }
 }
