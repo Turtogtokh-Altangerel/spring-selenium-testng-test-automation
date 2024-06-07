@@ -34,9 +34,4 @@ public abstract class TestBase extends AbstractTestNGSpringContextTests {
   public void tearDown() {
     //
   }
-
-  protected <T> T getPage(Class<T> page) {
-    assert applicationContext != null;
-    return applicationContext.getBean(page);
-  }
 }
