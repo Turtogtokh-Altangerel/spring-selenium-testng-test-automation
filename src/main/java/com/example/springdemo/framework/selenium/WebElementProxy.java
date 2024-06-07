@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class WebElementProxy {
   @Autowired private WebElementAspect webElementAspect;
 
-  public WebElement createProxy(WebElement element) {
+  public WebElement proxyForAspect(WebElement element) {
     AspectJProxyFactory proxyFactory = new AspectJProxyFactory(element);
     proxyFactory.addAspect(webElementAspect);
     return proxyFactory.getProxy();
