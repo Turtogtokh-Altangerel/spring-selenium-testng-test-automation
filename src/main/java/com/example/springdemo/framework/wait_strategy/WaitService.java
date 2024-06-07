@@ -43,6 +43,16 @@ public class WaitService {
     waitForInvisibilityOfElement(webElement);
   }
 
+  public void waitForElementToBeClickable(WebElement webElement) {
+    webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
+  }
+
+  @OptionalTimeout
+  @SuppressWarnings("unused")
+  public void waitForElementToBeClickable(int timeout, WebElement webElement) {
+    waitForElementToBeClickable(webElement);
+  }
+
   void setTimeout(Duration duration) {
     webDriverWait.withTimeout(duration);
     System.out.println("Set timeout to " + duration);
