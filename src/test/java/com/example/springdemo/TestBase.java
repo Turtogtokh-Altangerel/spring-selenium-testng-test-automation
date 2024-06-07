@@ -12,6 +12,7 @@ import org.testng.annotations.*;
 public abstract class TestBase extends AbstractTestNGSpringContextTests {
   @Autowired protected DriverService driverService;
   @Autowired protected WaitService waitService;
+  @Autowired protected NavigationService navigationService;
 
   @BeforeSuite
   public void setup() {
